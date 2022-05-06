@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.hsetravel.ui.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_mainFragment2_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.hsetravel.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_mainFragment2"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.example.hsetravel.DetailActivity"
+        android:label="DetailActivity" >
+        <argument
+            android:name="excursionArray"
+            app:argType="com.example.hsetravel.data.ExcursionObject[]" />
+        <argument
+            android:name="selectedPosition"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </activity>
+</navigation>
